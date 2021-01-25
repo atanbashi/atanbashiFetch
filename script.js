@@ -16,6 +16,9 @@ let name = getUserName(url);
 fetch('https://api.github.com/users/' + name)
   .then(res => res.json())
   .then(json => {
+    if (json.message === "Not Found") {
+      throw json.message;
+    }
     let avatar = json.avatar_url;
     let userName = json.name;
     let userInfo = json.bio;
