@@ -22,7 +22,6 @@ fetch('https://api.github.com/users/' + name)
     let avatar = json.avatar_url;
     let userName = json.name;
     let userInfo = json.bio;
-    let userUrl = json.html_url;
     let createName = () => {
       let profileName = document.createElement('h1');
       profileName.innerHTML = userName;
@@ -39,19 +38,9 @@ fetch('https://api.github.com/users/' + name)
       body.appendChild(userAvatar);
       body.appendChild(newString);
     }
-    let createUserUrl = () => {
-      let profileUrl = document.createElement('a');
-      let text = document.createTextNode('profile');
-      let newString = document.createElement('br');
-      profileUrl.href = userUrl;
-      profileUrl.appendChild(text);
-      body.appendChild(newString);
-      body.appendChild(profileUrl);
-    }
     createName();
     createUserInfo();
     createUserAvatar();
-    createUserUrl();
   })
 
   .catch(err => alert('Информация о пользователе не доступна'));
