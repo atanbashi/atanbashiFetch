@@ -1,17 +1,17 @@
-let body = document.body;
+// let body = document.body;
+//
+// let url = window.location.toString();
 
-let url = window.location.toString();
+// let getUserName = (url) => {
+//   let getUrl = url.split('=');
+//   let userName = getUrl[1];
+//   if (userName == undefined) {
+//     userName = 'atanbashi';
+//   }
+//   return userName;
+// }
 
-let getUserName = (url) => {
-  let getUrl = url.split('=');
-  let userName = getUrl[1];
-  if (userName == undefined) {
-    userName = 'atanbashi';
-  }
-  return userName;
-}
-
-let name = getUserName(url);
+// let name = getUserName(url);
 
 fetch('https://api.github.com/users/' + name)
   .then(res => res.json())
