@@ -3,8 +3,9 @@ let body = document.body;
 let requestFromPromise, dateFromPromise;
 
 let getDate = new Promise((resolve, reject) => {
-  let date = new Date();
-  setTimeout(() => { date ? resolve(date) : reject('Time didnt find')}, 2000);
+  setTimeout(() => {
+    let currentDate = new Date();
+    currentDate ? resolve(currentDate) : reject('Time didnt find')}, 2000);
 });
 
 let getUserName = new Promise((resolve, reject) => {
@@ -57,7 +58,7 @@ let maskPreload = () => {
 Promise.all([getUserName, getDate]
   .then(([name, date]) => {
       dateFromPromise = date;
-      requestFromPromise =name;
+      requestFromPromise = name;
       return fetch('https://api.github.com/users/' + name);
   })
   .then(res => res.json())
