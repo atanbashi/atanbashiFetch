@@ -1,11 +1,11 @@
 let body = document.body;
 
+let date = new Date();
+
 let requestFromPromise, dateFromPromise;
 
 let getDate = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    let currentDate = new Date();
-    currentDate ? resolve(currentDate) : reject('Time didnt find')}, 2000);
+  setTimeout(() => date ? resolve(date) : reject('Time didnt find'), 2000)
 });
 
 let getUserName = new Promise((resolve, reject) => {
